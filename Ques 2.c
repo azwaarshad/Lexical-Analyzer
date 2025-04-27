@@ -1,12 +1,22 @@
 #include <stdio.h>
+
 int main(){
-	int x;
-	for(x=1; x <= 10; x++){
-		if(x == 5){
-			break;
-		}
-		printf("%d ", x);
+	int num, remainder, newNum, reversedNum=0;
+	printf("Enter any number: ");
+	scanf("%d", &num);
+	
+	newNum = num;
+	
+	while(num!=0){
+		remainder = num%10;
+		reversedNum = reversedNum * 10 + remainder;
+		num = num/10;
 	}
-	printf("\nBroke out of loop at x == %d", x);
+	
+	if(newNum == reversedNum)
+		printf("%d is a palindrome number",newNum);
+	else
+		printf("%d is not a palindrome number",newNum);
+		
 	return 0;
 }

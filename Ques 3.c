@@ -1,12 +1,28 @@
 #include <stdio.h>
+#include <math.h>
 int main(){
-	int x;
-	for(x=1; x <= 10; x++){
-		if(x == 5){
-			continue;
-		}
-		printf("%d ", x);
+	int num, newNum, remainder, number=0, answer=0;
+	printf("Enter a number: ");
+	scanf("%d", &num);
+	
+	newNum = num;
+	
+	while(newNum != 0){
+		newNum /= 10;
+		++number;
 	}
-	printf("\nUsed continue to skip printing the value 5");
+	newNum = num;
+	
+	while(newNum != 0){
+		remainder = newNum % 10;
+		answer += pow(remainder,number);
+		newNum /= 10;
+	}
+	if(answer == num){
+		printf("%d is an Armstrong number", num);
+	}
+	else{
+		printf("%d is not an Armstrong number", num);
+	}
 	return 0;
 }

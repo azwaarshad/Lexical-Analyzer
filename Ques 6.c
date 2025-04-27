@@ -1,12 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
+int isBinary(int num);
 int main(){
-	int i;
-	for(i=1; i <= 20; i++){
-		printf("%10d", 1 + (rand() % 6));
-		if(i % 5 == 0){
-			printf("\n");
-		}
+	int num;
+	printf("Enter a number: ");
+	scanf("%d", &num);
+	
+	if(isBinary(num)){
+		printf("%d is a binary number", num);
+	}
+	else{
+		printf("%d is not a binary number", num);
 	}
 	return 0;
+}
+
+int isBinary(int num){
+	while(num>0){
+		if(num%10>1){
+			return 0;
+		}
+		num /= 10;
+	}
+	return 1;
 }
